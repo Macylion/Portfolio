@@ -1,5 +1,6 @@
 # Portfolio
 just portfolio <3
 
-npm install
-parcel index.html
+### how to install
+1. npm install 
+2. parcel index.html
