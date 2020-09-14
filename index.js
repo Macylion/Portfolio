@@ -1,6 +1,16 @@
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
+function getWidth() {
+  return Math.max(
+    document.body.scrollWidth,
+    document.documentElement.scrollWidth,
+    document.body.offsetWidth,
+    document.documentElement.offsetWidth,
+    document.documentElement.clientWidth
+  );
+}
+
 window.onload = () => {
 
 	//plugin register
@@ -28,15 +38,41 @@ window.onload = () => {
 		ease: "power4",
 		stagger: 0.2
 	})
+	
+	//divide text in aboutme into divs
+	let texts = document.querySelectorAll(".amtext");
+	for (var i = 0; i <= texts.length - 1; i++){
+		let words = []
+		words = [...words, ...texts[i].innerHTML.split(' ')]
+		let newText = ""
+		for (var j = 0; j <= words.length - 1; j++)
+			if(words[j] != "")
+				newText += "<div class='word amanim'>" + words[j] + "</div>"
+		texts[i].innerHTML = newText;
+	}
 
 	//about me animation
-	const abtAnim = gsap.to(".amanim", 
-		{opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power4.out"});
+	setTimeout( function(){
+		const amAnim = gsap.to(".amanim", 
+			{opacity: 1, y: 0, duration: 1, stagger: 0.01, ease: "power4.out"});
 
-	ScrollTrigger.create({
-		trigger: "#amtrigger",
-		animation: abtAnim
-	})
+		ScrollTrigger.create({
+			trigger: "#amtrigger",
+			animation: amAnim
+		})
+	}, (getWidth() < 1100)? 0 : 2500)
+
+	//skills animation
+	setTimeout( function(){
+		const sAnim = gsap.to(".sanim", 
+			{opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power4.out"});
+
+		ScrollTrigger.create({
+			trigger: "#strigger",
+			animation: sAnim
+		})
+
+	}, (getWidth() < 1100)? 0 : 3500)
 
 
 };
