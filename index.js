@@ -74,5 +74,17 @@ window.onload = () => {
 
 	}, (getWidth() < 1100)? 0 : 3500)
 
+	//projects animation
+	setTimeout( function(){
+		const pAnim = gsap.to(".panim", 
+			{opacity: 1, y: 0, duration: 1, stagger: 0.2, ease: "power4.out"});
+
+		ScrollTrigger.create({
+			trigger: "#ptrigger",
+			animation: pAnim
+		})
+
+	}, (getWidth() < 1100)? 0 : 4000)
+
 
 };

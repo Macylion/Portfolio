@@ -137,9 +137,13 @@ a{
 	.separator{
 		height: 8em !important;
 	}
+	.pleft {
+		width: 50vw !important;
+	}
 }
 
 .section {
+	padding-top: 5em;
 	width: 100%;
 	min-height: 100vh;
 	display: flex;
@@ -194,9 +198,9 @@ a{
 	top: 0;
 }
 
-.amanim, .sanim{
+.amanim, .sanim, .panim{
 	opacity: 0;
-	transform: translateY(200px);
+	transform: translateY(100px);
 }
 
 .aboutme div {
@@ -207,4 +211,64 @@ a{
 	padding: 0;
 	display: inline-block;
 	margin-right: 6px;
+}
+
+.projects {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10em;
+}
+
+.project {
+	color: #222;
+	margin-top: 2vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.pleft {
+	width: 32vw;
+	display: flex;
+	flex-direction: row;
+}
+
+.pright {
+	display: flex;
+	flex-direction: row;
+	font-size: 1.2em;
+}
+
+.psite, .pgit {
+	margin-top: 1.2em;
+	margin-bottom: .6em;
+	margin-right: 1.2em;
+	transition: transform .2s;
+}
+
+.psite:hover, .pgit:hover {
+	transform: scale(1.1) rotate(-4deg) !important;
+	transition: transform .2s;
+	background-color: blue;
+}
+
+.btnlink {
+	color: #222;
+	padding: .5em .7em;
+	background-color: #222;
+	text-align: center;
+	color: lightgreen !important;
+}
+
+.pleft {
+	display: inline-flex;
+	flex-direction: column;
+}
+
+.ptitle {
+	font-size: 2em;
+	margin-bottom: 16px;
+}
+
+.pdesc {
+	font-size: 1.2em;
 }
